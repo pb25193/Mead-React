@@ -1,37 +1,57 @@
 console.log("App.js is running");
 
 // JSX - JavaScript XML
+/**
+ * This is a source file. It is not valid JS code, and cannot run on any browser. 
+ * It is converted to a JS file by Babel, which is present in public/scripts/
+ */
 
-var app = {
+
+const app = {
     title: "Indecision App",
-    subtitle: "Let the computer take your boring decisions for you!"
+    subtitle: "Let the computer take your boring decisions for you!",
+    options: []
 };
 
-var template = (
-    <div>
-        <h1>{app.title}</h1>
-        <p>{app.subtitle}</p>
-        <ol>
-            <li>Element 1</li>
-            <li>Element 2</li>
-        </ol>
-    </div>
-);
-var appRoot = document.getElementById('app');
+const onFormSubmit = (e) => {
+    e.preventDefault();
+    const option = e.target.elements.option.value;
+    if(option) app.options.push(option);
+    e.target.elements.option.value = '';
+    
 
-// challenge
-var user = {
-    name: "Partha Bhattacharya",
-    age: 26,
-    location: "Bangalore"
-};
-var templateTwo = (
-    <div>
-        <h1>{user.name}</h1>
-        <p>Age: {user.age}</p>
-        <p>Location: {user.location}</p>
-    </div>
-);
+    renderApp();
+}
 
+const removeAll = () => {
+    app.options = [];
 
-ReactDOM.render(template, appRoot);
+    renderApp();
+}
+
+const renderApp = () => {
+    const numbers = [55, 33, 14];
+    const template = (
+        <div>
+            <h1>{app.title}</h1>
+            {app.subtitle && <p>{app.subtitle}</p>}
+            <button onClick={removeAll}>Remove All</button>
+            <p>{app.options.length > 0 ? "Here are your options:" : "No options available..." }</p>
+            <ol>
+                {
+                    app.options.map((option, i) => <li key={i}>{option} </li>)
+                }
+            </ol>
+            <form onSubmit={onFormSubmit}>
+            <input type="text" name="option" />
+            <button>Add option</button>
+            </form>
+        </div>
+    );
+    
+    const appRoot = document.getElementById('app');
+    
+    ReactDOM.render(template, appRoot);    
+}
+
+renderApp();
