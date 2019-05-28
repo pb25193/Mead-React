@@ -1,57 +1,73 @@
-console.log("App.js is running");
+class IndecisionApp extends React.Component {
+    render() {
+        return (
+            <div>
+                <Header />
+                <Action />
+                <Options />
+                <AddOption />
+            </div>
+        );
+    }
+}
 
-// JSX - JavaScript XML
-/**
- * This is a source file. It is not valid JS code, and cannot run on any browser. 
- * It is converted to a JS file by Babel, which is present in public/scripts/
- */
 
-
-const app = {
-    title: "Indecision App",
-    subtitle: "Let the computer take your boring decisions for you!",
-    options: []
+class Header extends React.Component {
+    render() {
+        return (
+            <div>
+            <h1>Indecision</h1>
+            <h2>Put your life in the hands of a computer!</h2>
+            </div>
+        );
+    }
 };
 
-const onFormSubmit = (e) => {
-    e.preventDefault();
-    const option = e.target.elements.option.value;
-    if(option) app.options.push(option);
-    e.target.elements.option.value = '';
-    
-
-    renderApp();
+class Action extends React.Component {
+    render() {
+        return (
+            <div>
+                <button>What should I do?</button>
+            </div>
+        );
+    }
 }
 
-const removeAll = () => {
-    app.options = [];
-
-    renderApp();
+class Options extends React.Component {
+    render() {
+        return (
+            <div>
+                Options Component Here:
+                <ol>
+                <Option />
+                <Option />
+                <Option />
+                </ol>
+            </div>
+        );
+    }
 }
 
-const renderApp = () => {
-    const numbers = [55, 33, 14];
-    const template = (
-        <div>
-            <h1>{app.title}</h1>
-            {app.subtitle && <p>{app.subtitle}</p>}
-            <button onClick={removeAll}>Remove All</button>
-            <p>{app.options.length > 0 ? "Here are your options:" : "No options available..." }</p>
-            <ol>
-                {
-                    app.options.map((option, i) => <li key={i}>{option} </li>)
-                }
-            </ol>
-            <form onSubmit={onFormSubmit}>
-            <input type="text" name="option" />
-            <button>Add option</button>
-            </form>
-        </div>
-    );
-    
-    const appRoot = document.getElementById('app');
-    
-    ReactDOM.render(template, appRoot);    
+class Option extends React.Component {
+    render() {
+        return (
+            <div>
+                <li>Option Component Here</li>
+            </div>
+        );
+    }
 }
 
-renderApp();
+
+class AddOption extends React.Component {
+    render() {
+        return (
+            <div>
+                <p>AddOption Component Here</p>
+            </div>
+        );
+    }
+}
+
+
+ReactDOM.render(<IndecisionApp />, document.getElementById("app"));
