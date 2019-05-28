@@ -1,36 +1,62 @@
-let visible = true;
-const message = "Here is the message";
-let num = 0;
+class VisibilityToggle extends React.Component {
+    constructor(props){
+        super(props);
+        this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
+        this.state = {
+            visible: false
+        };
+    }
 
-const toggle = () => {
-    visible = !visible;
+    handleToggleVisibility(){
+        this.setState((state)=>{
+            return {
+                visible: !state.visible
+            };
+        });
+    }
 
-    renderApp();
+    render() {
+        return (
+            <div>
+                <h1>Visibility Toggle</h1>
+                <button onClick={this.handleToggleVisibility}>{this.state.visible ? "make it vanish": "make it appear"}</button>
+                {this.state.visible ? <p>{this.props.message}</p> : null}
+                <TimeReporter />
+            </div>
+        );
+    }
+
+
+};
+
+class TimeReporter extends React.Component {
+    constructor(props){
+        super(props);
+        this.tickClock = this.tickClock.bind(this);
+        this.state = {
+            time: Date().toString()
+        };
+        setInterval(this.tickClock, 1000);
+    }
+
+    tickClock() {
+        this.setState(()=>{
+            return {
+                time: Date().toString()
+            };
+        })
+    }
+
+    render(){
+        return (
+            <div>
+                <h3>{Date().toString()}</h3>
+            </div>
+        );
+    }
+
 }
 
-const renderApp = () => {
-    const template = (
-        <div>
-        <h1>Visibility Toggle</h1>
-        <button onClick={toggle}>{visible ? "make it vanish": "make it appear"}</button>
-        {visible ? <p>{message}</p> : null}
-        <h3>{Date().toString()}</h3>
-        </div>
-    );
-    
-    const appRoot = document.getElementById('app');
-    
-    ReactDOM.render(template, appRoot);    
-}
+const message = "This is the message!";
 
-const moveClock = () => {
-    num++;
-
-    renderApp();
-
-    setTimeout(moveClock, 1000);
-}
-
-moveClock();
-
-renderApp();
+ReactDOM.render(<VisibilityToggle message = {message} />, document.getElementById("app"));

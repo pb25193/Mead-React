@@ -13,7 +13,7 @@ class IndecisionApp extends React.Component {
             </div>
         );
     }
-}
+};
 
 
 class Header extends React.Component {
