@@ -25,8 +25,6 @@ class VisibilityToggle extends React.Component {
             </div>
         );
     }
-
-
 };
 
 class TimeReporter extends React.Component {
@@ -54,7 +52,6 @@ class TimeReporter extends React.Component {
             </div>
         );
     }
-
 }
 
 const message = "This is the message!";
