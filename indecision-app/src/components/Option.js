@@ -5,10 +5,9 @@ const Option = (props) => {
     const handleDeleteOption = function(){
         props.handleDeleteOption(props.opt);
     };
-
     return (
-        <div>
-            <li>{props.opt} <button onClick={handleDeleteOption}>Remove</button></li>
+        <div className="option">
+            <p className="option__text">{props.count}. {props.opt}</p> <button className="button--link" onClick={handleDeleteOption}>Remove</button>
         </div>
     );
 };
