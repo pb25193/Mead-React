@@ -4,7 +4,7 @@ import React from 'react';
 
 const NotFoundPage = () => (
     <div>
-        404
+        Sorry! It appears that the page you are looking for does not exist.
     </div>
 );
 
