@@ -8,13 +8,7 @@ import uuid from 'uuid';
  * EDIT_EXPENSE
  */
 
- const addExpense = ( 
-    {
-        description = '', 
-        note = '', 
-        amount = 0, 
-        createdAt = 0
-    } = {} ) => ({
+ const addExpense = ( { description = '', note = '', amount = 0, createdAt = 0 } = {} ) => ({
     type: "ADD_EXPENSE",
     expense: {
         id: uuid(),
