@@ -16,10 +16,12 @@ const addExpense = ( { description = '', note = '', amount = 0, createdAt = 0 } 
     id
  });
 
- const editExpense = ( { id, updates } = {} ) => ({
-    type: "EDIT_EXPENSE",
-    id,
-    updates
- });
+ const editExpense = ( { id, updates } = {} ) => {
+    return {
+      type: "EDIT_EXPENSE",
+      id,
+      updates
+   };
+}
 
  export {addExpense, removeExpense, editExpense};

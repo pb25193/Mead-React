@@ -6,6 +6,7 @@ import configureStore from './store/configureStore'
 import { addExpense } from './actions/expenses';
 import { editFilterText } from './actions/filters'
 import { getVisibleExpenses } from './selectors/expenses'
+import moment from 'moment';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
@@ -24,9 +25,9 @@ store.subscribe(()=>{
 })
 
 
-store.dispatch(addExpense({description: "water bill", amount: 300, createdAt: 43200}));
+store.dispatch(addExpense({description: "water bill", amount: 300, createdAt: 43200203020}));
 
-store.dispatch(addExpense({description: "electrity bill", amount: 400, createdAt: 234}));
+store.dispatch(addExpense({description: "electrity bill", amount: 400, createdAt: 234328183192}));
 
 store.dispatch(addExpense({description: "water bottle", amount: 20}));
 
@@ -40,7 +41,7 @@ store.dispatch(editFilterText(""));
 
 
 setTimeout(()=>{
-    store.dispatch(addExpense({description: "randi bill", amount: 3000000000, createdAt: 778}));
+    store.dispatch(addExpense({description: "randi bill", amount: 3000000000, createdAt: 72143254421328}));
 }, 3000);
 
 // setTimeout(()=>{
