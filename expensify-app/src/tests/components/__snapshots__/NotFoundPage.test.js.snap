@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render not found page 1`] = `
+<div>
+  Sorry! It appears that the page you are looking for does not exist.
+</div>
+`;

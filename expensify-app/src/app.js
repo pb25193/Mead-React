@@ -6,9 +6,11 @@ import configureStore from './store/configureStore'
 import { addExpense } from './actions/expenses';
 import { editFilterText } from './actions/filters'
 import { getVisibleExpenses } from './selectors/expenses'
-import moment from 'moment';
+// import moment from 'moment';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import 'react-dates/lib/css/_datepicker.css';
+
 
 /**
  * BrowserRouter --- wrapper for browser app
