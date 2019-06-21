@@ -63,3 +63,13 @@ test('shoud not edit expense for unfounded id', ()=>{
      });
     expect(state).toEqual(expenses);
 });
+
+
+test('should set all expenses by setting', ()=>{
+    const action = {
+        type: "SET_EXPENSES",
+        expenses
+    };
+    const state = expensesReducer([], action);
+    expect(state).toEqual(expenses);
+});
