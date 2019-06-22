@@ -9,12 +9,12 @@ export class EditExpensePage extends React.Component {
 
     handleEditButton = (updates)=>{
         this.props.startEditExpense(this.props.expense.id, updates);
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
     }
 
     handleRemoveButton = ()=>{
         this.props.startRemoveExpense(this.props.expense.id);
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
     }
 
     render() {
