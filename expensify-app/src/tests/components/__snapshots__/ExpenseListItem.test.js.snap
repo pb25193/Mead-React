@@ -1,19 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should show up with expense 1`] = `
-<div>
-  <Link
-    to="/edit/1232"
-  >
-    <h3>
+<Link
+  className="list-item"
+  to="/edit/1232"
+>
+  <div>
+    <h3
+      className="list-item__title"
+    >
       rent
       :
     </h3>
-  </Link>
-  <div>
-    $1,095.00
-     - 
-    January 2nd 1970
+    <span
+      className="list-item__subtitle"
+    >
+      January 2nd 1970
+    </span>
   </div>
-</div>
+  <h3
+    className="list-item__data"
+  >
+    $1,095.00
+  </h3>
+</Link>
 `;
